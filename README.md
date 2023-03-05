@@ -1,30 +1,26 @@
 # Implementação: Programação Funcional
 
-Exemplo: dado um dicionário com informações de produtos, calcular o preço total dos produtos que possuem estoque disponível.
+Exemplo de aplicação da programação funcional em uma lista de números
 
-produtos = [
-{'nome': 'Produto 1', 'preco': 10.0, 'estoque': 5},
-{'nome': 'Produto 2', 'preco': 15.0, 'estoque': 0},
-{'nome': 'Produto 3', 'preco': 20.0, 'estoque': 3},
-{'nome': 'Produto 4', 'preco': 5.0, 'estoque': 8},
-{'nome': 'Produto 5', 'preco': 7.5, 'estoque': 2}
-]
+from functools import reduce
 
-Primeiramente, é necessário filtrar os produtos que possuem estoque disponível.
+Criando uma lista de números: 
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-produtos_disponiveis = filter(lambda p: p['estoque'] > 0, produtos)
+Utilizando map para calcular o quadrado de cada número na lista:  
+quadrados = list(map(lambda x: x**2, numeros))
 
-Agora, vamos aplicar a função map para calcular o preço total de cada produto disponível.
+print("Lista de números originais: ", numeros)  
+print("Lista de quadrados dos números: ", quadrados)
 
-precos = map(lambda p: p['preco'] * p['estoque'], produtos_disponiveis)
+Utilizando filter para selecionar apenas números pares na lista:  
+pares = list(filter(lambda x: x % 2 == 0, numeros))
 
-Por fim, vamos utilizar a função reduce para somar os preços dos produtos disponíveis.
+print("Lista de números originais: ", numeros)  
+print("Lista de números pares: ", pares)
 
-preco_total = reduce(lambda x, y: x + y, precos)
+Utilizando reduce para calcular a média da lista de números:  
+media = reduce(lambda x, y: x + y, numeros) / len(numeros)
 
-Exibindo o resultado.
-
-print('O preço total dos produtos disponíveis é de R$ {:.2f}'.format(preco_total))
-
-Output: O preço total dos produtos disponíveis é de R$ 105.00
-Neste programa, foi utilizado a programação funcional para filtrar os produtos que possuem estoque disponível, calcular o preço total de cada produto e somar os preços dos produtos disponíveis. 
+print("Lista de números originais: ", numeros)  
+print("Média dos números: ", media)
